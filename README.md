@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nenadg/otvoreni-budzet.png?branch=master)](https://travis-ci.org/nenadg/otvoreni-budzet)
+
 Otvoreni budzet
 =============================
 
