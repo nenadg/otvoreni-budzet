@@ -1,0 +1,26 @@
+<h2>Users</h2>
+<form method="post" action="/users/update/" class="register">
+    <fieldset>
+        <legend>Update <%- user.username %>'s info</legend>
+        
+        <label>Username:</label>
+        <input type="text" name="username2" autocomplete="off" value="<%- user.username %>" disabled>
+        <input type="hidden" name="username" value="<%- user.username %>" >
+        <label>Password:</label>
+        <input type="password" name="password" autocomplete="off" value="">
+        
+        <label>E-mail:</label>
+        <input type="text" name="email" autocomplete="off" value="<%- user.email %>">
+        
+        <label>Group:</label>
+        <select name="role">
+          <option value="admins" <% if(user.role != ''){ %> selected <% } %>>$ Administrators</option>
+          <option value="contribs" <% if(user.role != ''){ %> selected <% } %>>* Contributors</option>
+          <option value="users" <% if(user.role != ''){ %> selected <% } %>>~ Users</option>
+        </select>
+        
+        <span class="help-block">Account will be accessible immediately.</span>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>

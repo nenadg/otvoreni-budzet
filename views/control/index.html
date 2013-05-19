@@ -1,0 +1,77 @@
+        <h2>Kontrolni centar</h2>
+        <form method="post" action="/control/save">
+
+          <input type="text" name="broj-konta" class="opis brojevi ogranicenje-na-sest-karaktera input-mini" data-original-title="Broj konta" autocomplete="off"></input>
+        <input type="text" name="naziv-stavke" class="opis input-xxlarge" data-original-title="Naziv stavke" autocomplete="off"></input>
+        <input type="text" name="iznos" class="opis brojevi input-small" data-original-title="Iznos" autocomplete="off"></input>
+
+        <button class="btn btn-medium btn-primary" type="submit" style="margin-top: -11px">Snimi</button>
+        </form>
+        
+        <hr/>
+        <table class="table table-hover table-bordered" id="kontni-plan-unos">
+            <caption>Kontni plan</caption>
+            <thead>
+                <tr>
+                    <th>Akcije</th>
+                    <th id="kontni-plan-klasa">Klasa</th>
+                    <th id="kontni-plan-grupa">Grupa</th>
+                    <th id="kontni-plan-podgrupa">Podgrupa</th>
+                    <th id="kontni-plan-sinteticki-konto">Sintetički konto</th>
+                    <th id="kontni-plan-podsinteticki-konto">Podsintetički konto</th>
+                    <th id="kontni-plan-analiticki-konto">Analitički konto</th>
+                    <th id="kontni-plan-analiticki-konto">Naziv</th>
+                </tr>
+            </thead>
+            <tbody id="kontni-plan-unos-rezultati">
+               
+                   
+            </tbody>
+        </table>
+        
+        <div class="status">
+        </div>
+
+        <!-- Render potrebnih polja -->
+        <script>
+            $.ajax({
+                type: 'GET',
+                url: 'json/konti-plan-sample.json',
+                dataType: 'json',
+                success: function (data, status) {
+                    $.each(data.klasa, function (podklasa) {
+                        $('#kontni-plan-unos-rezultati').append(
+                            '<tr><td>akcija</td><td>' + podklasa + '</td></tr>'
+                            
+                            
+                            
+                            
+                        );
+                        
+                    });
+                    
+                    // Poruka o uspjesnom statusu
+                    $('.status').append('<p class=\"btn btn-small btn-success\">Podaci primljeni</p>');
+                },
+                error: function (data, status, a) {
+                    
+                    // Poruka o neuspjesnom statusu
+                    $('.status').append('<p class=\"btn btn-small btn-danger\">Nešto ne valja</p>');
+                    $('.status').append('<h3>Greška!</h3> Poruka koju je vratio server : <strong>' + a + '</strong>');
+                }
+
+            });
+            
+            $('.opis').tooltip();
+            
+            $('.brojevi').keyup(function () { 
+                this.value = this.value.replace(/[^0-9\.]/g,'');
+            });
+            
+            $('.ogranicenje-na-sest-karaktera').keyup(function () { 
+                if(this.value.length > 6)
+                {
+                     $(this).val(this.value.substring(0, this.value.lastIndexOf('')-1));
+                }
+            });
+        </script>

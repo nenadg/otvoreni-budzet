@@ -1,0 +1,98 @@
+<div class="row">
+<!--
+            <div class="span3">
+                <span class="data-toggle title">Izmijeni sadržaj</span>
+                <hr/>
+               
+                                    
+                <fieldset id="data-edit">
+                    
+                    <label>Izmijeni podatak</label>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-small disabled span2" id="godina">Izaberi godinu</button>
+                        <button class="btn dropdown-toggle btn-small" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="years">
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="input-append divide">
+                        <input type="number" id="genericId" name="genericId" placeholder="0000000" class="span2 smaller-text" disabled>
+                        <button class="btn btn-small korisnici-all disabled" id="genericId-button" type="button">
+                            <i class="caret"></i> 
+                        </button>
+                    </div>
+                    
+                    <br/><br/>
+                    
+                    <small>
+                        <span class="help-block gray"></span></small>
+
+                    <button id="posalji" class="btn btn-small btn-primary disabled" data-loading-text="<i class='icon-upload icon-white'></i>">Traži</button>
+                    
+                </fieldset>
+                
+            </div>
+            -->
+            <div data-offset-top="20" class="span3 kill-margins-paddings">
+                    <span class="data-toggle title"></span>
+                    <hr/>
+                    
+                    <div id="default-rel">
+                        <p>Planirani budžetski rashodi za <span id="godina"></span>. godinu.<br/></p>
+                        <p class="btn btn-primary btn-small disabled" id="prethodni">Prethodni korisnik</p>
+                        <p class="btn btn-primary btn-small" id="sljedeci">Sljedeći korisnik</p>
+                        <br/>
+                        <div class="input-append divide">
+                            <input type="text" placeholder="Budžetski korisnici..." class="smaller-text korisnici-search">
+                            <button class="btn btn-small btn-inverse korisnici-all" type="button">
+                                <i class="caret"></i> 
+                            </button>
+                        </div>
+                        <br/>
+                    </div>
+                    
+                    <div class="btn-group divide">
+                        <button class="btn btn-small disabled btn-inverse">Godina</button>
+                        <button class="btn dropdown-toggle btn-small btn-inverse" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="years">
+                            <!-- prikaz godina za koje postoji baza -->
+                        </ul>
+                    </div>
+                    
+                    <div class="btn-group divide">
+                        <button class="btn btn-small disabled btn-inverse">Budžetske stavke</button>
+                        <button class="btn dropdown-toggle btn-small btn-inverse" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="budget-elements">
+                            <li><a href="#" id="prihodi">Prihodi</a></li>
+                            <li><a href="#" id="rashodiTotal">Rashodi</a></li>
+                            <li><a href="#" id="rashodiPoKorisniku">Rashodi po korisniku</a></li>
+                            <li><a href="#" id="rashodiOstalo">Rashodi ostalo</a></li>
+                        </ul>
+                    </div>
+                    <hr/>
+                    </div>
+            <div class="span9">
+                <div class="well">
+                    <h5 class="summa"></h5>
+                    <div class="data-status-renderer">
+                        <!-- statusi baza ovde -->  
+                    </div>
+                    <hr />
+                    <div class="data-service-info-renderer">
+                        
+                        <!-- statusi servisa ovde --> 
+                    </div>
+                </div>
+                
+                
+                    
+            </div>
+        

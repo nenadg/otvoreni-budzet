@@ -1,0 +1,28 @@
+<h2>Users</h2>
+<form method="post" action="/users/create" class="register">
+    <fieldset>
+        <legend>Register new user</legend>
+        
+        <label>Username:</label>
+        <input type="text" name="username" autocomplete="off">
+        
+        <label>Password:</label>
+        <input type="password" name="password" autocomplete="off">
+        
+        <label>E-mail:</label>
+        <input type="text" name="email" autocomplete="off">
+        
+        <label>Group:</label>
+        <select name="role">
+          <option value="admins">$ Administrators</option>
+          <option value="contribs">* Contributors</option>
+          <option value="users" selected>~ Users</option>
+        </select>
+        
+        <span class="help-block">Account will be accessible immediately.</span>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>
+    
+     

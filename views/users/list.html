@@ -1,0 +1,42 @@
+<h2>Korisnici</h2>
+<%  if(users.length >= 1) { %>
+<table class="table table-hover table-bordered">
+    <caption>Korisnici</caption>
+    <thead>
+        <tr>
+            <th>Akcije</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Zadnja prijava</th>
+            <th>Uloga</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%  for(var user in users) {
+            if(users[user]._id !== undefined){
+            
+         %>
+        <tr>
+            <td><a class="btn btn-small btn-danger" href='/users/remove/<%= users[user]._id %>'>izbriši</a>
+                <a class="btn btn-small btn-info" href='/users/update/<%= users[user].username %>'>izmijeni</a>
+            </td>
+            <td>
+                <% if(online.indexOf(users[user].username) > -1) { %> 
+                <i class="icon-eye-open"></i>&nbsp;<%- users[user].username %>
+                <% } else { %>
+                <i class="icon-eye-close"></i>&nbsp;<%- users[user].username %>
+                <% } %>
+            </td>
+            <td>
+                <%- users[user].email %>
+            </td>
+            <td><%- users[user].lastLogin %> </td>
+            <td><strong><%- roles[users[user].role] %></strong></td>
+        </tr>
+        <% } } %>    
+    </tbody>
+</table>
+<p><a class="btn btn-big btn-primary" href="/users/create">Novi korisnik</a></p>
+<% } else {  %>
+    <p>Nema korisnika u bazi.</p>
+<% } %>

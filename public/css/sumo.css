@@ -1,0 +1,72 @@
+
+svg { float:left;  }
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #999;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: #3261AB; /*#3DB680;*/ /*#D04255;*/
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+  font-size: 10px;
+}
+
+rect.bar { fill-opacity: .4; }
+rect text { fill-opacitiy: .5; color: #000; display: block; }
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis .tick.major text { display: none; }
+
+label, input[type=checkbox] {
+     padding-left: 5px;
+}
+
+div.tooltip {   
+  position: absolute;           
+  text-align: center; width: 12em; margin: .7em 1em 0em 0em; font-weight: normal; font-size: .9em; -moz-border-radius: .78em; 
+  -webkit-border-radius: .78em; border-radius: .78em; padding: .29em 1.125em;
+  text-decoration: none; background-color: #EDAD0B; color: #ffffff !important; pointer-events: none; shape-rendering: crispEdges;     
+}
+
+#data-view { display: block; min-width: 500px; min-height: 500px; }
+hr { margin-bottom: 10px; }
+.bsfull { width: 100%; }
+.bshalf { width: 50%; }
+.bsot { width: 87.5%; }
+.bsleft { float: left; }
+.bsclear { clear: left; }
+
+.dropdown-wide { width: 98%; }
+.half { width: 38%;}
+.gray-bold { color: gray; font-weight: bold; }
+.gray { color: #777; }
+.red { font-weight: bold; text-transform: lowercase } 
+.white { color: #fff !important; }
+.data-toggle.title { font-size: 18px; height: 50px; display: block }
+.li-title { padding-left: 15px; padding-right: 15px; }
+rect.little { shape-rendering: crispEdges; z-index: 9999; display: block }
+.korisnici { height: 250px; overflow: auto; }
+.ostalo { position: relative }
+.kill-margins-paddings { margin: 0 !important; padding: 0 !important; border: 0 !important; }
+.divide { padding-top: 6px; display: inline-block; }
+#kontni-plan-izbor { margin-bottom: 10px; }
+
+.input-append { margin: 0 !important; display: inline-block !important; }
+input[type="text"].smaller-text { width: 80%; height: 16px; font-size: 12px; line-height: 14px; }
+input[type="text"].smaller-text-big { width: 70%; height: 16px; font-size: 12px; line-height: 14px;  }
+input[type="number"].smaller-text { width: auto; height: 16px; font-size: 12px; line-height: 14px; }
+
+ul.typeahead.dropdown-menu { height: 250px; overflow: auto; }
+.loader { background: white url('../img/loadaer2.gif') no-repeat center center;  }
+

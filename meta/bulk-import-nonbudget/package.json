@@ -1,0 +1,13 @@
+{
+  "name": "bulk-import",
+  "version": "0.0.1",
+  "private": true,
+  "author":"Nenad Golubović <me@nenadg.com>",
+  "description":"Kreira i unosi podatke sa *.pej.st servisa (kontni plan, analitička klasifikacija vladinih funkcija)",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "mongoose": "3.4.0"  
+  }
+}

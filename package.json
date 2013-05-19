@@ -1,0 +1,23 @@
+{
+  "name": "otvoreni-budzet",
+  "version": "0.0.1-5",
+  "private": true,
+  "author": "Nenad Golubović <me@nenadg.com>",
+  "description": "Pokušaj digitalizacije i vizuelizacije budžeta Republike Srpske.",
+  "scripts": {
+    "start": "app.js"
+  },
+  "dependencies": {
+    "express": "3.0.3",
+    "ejs": "*",
+    "express-ejs-layouts": "*",
+    "mongoose": "3.4.0",
+    "bcrypt": "0.7.3",
+    "socket.io": "0.9.13",
+    "connect-redis": "1.4.5"
+  },
+  "subdomain": "ob",
+  "engines": {
+    "node": "0.8.x"
+  }
+}

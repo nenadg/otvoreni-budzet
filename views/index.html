@@ -1,0 +1,112 @@
+<div class="row" id="content">
+            <div class="span3 visible-desktop">
+                <div data-spy="affix" data-offset-top="0" class="affix span3 kill-margins-paddings">
+                    <span class="data-toggle title"></span>
+                    <hr/>
+                    <p id="description" class="red">Planirani budžetski <span id="section-title"></span> za <span id="godina"></span>. godinu.<br/></p>
+                    <div id="default-rel">
+                        
+                        <div class="btn-group divide bsfull">
+                            <button class="btn btn-primary btn-small disabled bshalf" id="prethodni">Prethodni korisnik</button>
+                            <button class="btn btn-primary btn-small bshalf" id="sljedeci">Sljedeći korisnik</button>
+                        </div>
+                        <br/>
+                        <div class="input-append divide bsfull">
+                            <input type="text" placeholder="Budžetski korisnici..." class="smaller-text korisnici-search">
+                            <button class="btn btn-small btn-inverse korisnici-all" type="button">
+                                <i class="caret"></i> 
+                            </button>
+                        </div>
+                        <br/>
+                    </div>
+                    
+                    <div class="btn-group divide bsleft">
+                        <button class="btn btn-small disabled btn-inverse dd-year">Godina</button>
+                        <button class="years btn dropdown-toggle btn-small btn-inverse" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="years">
+                            <!-- prikaz godina za koje postoji baza -->
+                        </ul>
+                    </div>
+                    
+                    <div class="btn-group divide bsleft">
+                        <button class="btn btn-small disabled btn-inverse bsfull">Budžetske stavke</button>
+                        <button class="sections btn dropdown-toggle btn-small btn-inverse" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="budget-elements">
+                            <li><a href="#" id="prihodi">Prihodi</a></li>
+                            <li><a href="#" id="rashodiTotal">Rashodi</a></li>
+                            <li><a href="#" id="rashodiPoKorisniku">Rashodi po korisniku</a></li>
+                            <li><a href="#" id="rashodiOstalo">Rashodi ostalo</a></li>
+                        </ul>
+                    </div>
+                    <br/>
+                    <hr class="bsclear"/>
+
+                    <strong>Opcije</strong>
+                    <!-- todo: servis za eksel..
+                    <br/>
+                    <div class="btn-group divide">
+                        <button class="btn btn-small disabled btn-default">Izvezi podatke u .xlsx format</button>
+                        <button class="btn btn-small btn-default" id="export-xlsx" data-loading-text="<i class='icon-upload'>">
+                                <span class="icon-th"></span></button>
+                    </div> -->
+                    <br/>
+                    <div class="btn-group divide">
+                        <button class="btn btn-small disabled btn-default span2">Uporedi</button>
+                        <button class="btn btn-small btn-default compare" id="graph-compare" data-loading-text="<i class='icon-upload'>" data-toggle="buttons-checkbox">
+                                <span class="icon-random"></span></button>
+                    </div>
+                    
+                    <br/>
+                    <div class="btn-group divide">
+                        <button class="btn btn-small disabled btn-default span2">Izvezi podatke (json)</button>
+                        <button class="btn btn-small btn-default exports" id="export-json" data-loading-text="<i class='icon-upload'>">
+                                <span class="icon-align-left"></span></button>
+                    </div>
+                    <br/>
+                    <div class="btn-group divide">
+                        <button class="btn btn-small disabled btn-default span2">Izvezi grafik (svg)</button>
+                        <button class="btn btn-small btn-default exports" id="export-svg" data-loading-text="<i class='icon-upload'>">
+                                <span class="icon-leaf"></span></button>
+                    </div>
+                    
+                    <hr/>
+                    <strong>Objašnjenja</strong>
+                    <br/>
+                    <p class="divide">
+                        <small>
+                            Zanimljiva pojašnjenja u vezi sa ovim projektom možete čitati <strike><a href="#">ovdje</a></strike>.<br/>
+                            Pristup živim podacima u JSON formatu, možete pronaći <strike><a href="#">na ovom mjestu</a></strike>.
+                        </small>
+                        <br/>
+                    <% if(userstatus != true) { %>
+                    <p class="divide">
+                        <a href="/login" class="btn btn-small btn-success"><i class="icon-lock icon-white"></i>&nbsp;Prijavi se</a>
+                    </p>
+                    <% } else { %>
+                    <p class="divide">
+                        <a href="/logout" class="btn btn-small btn-warning"><i class="icon-lock icon-white"></i>&nbsp;Odjavi se</a>
+                    </p>
+                    <% } %>
+                    </p>
+                    <p class="trademark">
+                        <small class="gray-bold">Otvoreni budžet<sub>beta</sub></small><small class="gray"></small>
+                    </p>
+                </div>
+            </div>
+            <div class="span9">
+                <!-- ispod se renderuje grafik --> 
+                <div id="data-view" class="visible-desktop"></div>
+                <div id="mobile" class="hidden-desktop hidden-tablet">
+                <h1>:|</h1>
+                <p>
+                    Verzija za mobilne uređaje još nije kvalitetno osmišljena, ali je u planu.
+                    <br/>
+                    <small>(9.maj 2013.)</small>
+                </p>
+                </div>
+            </div>   
+        </div>
