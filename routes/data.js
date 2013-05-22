@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 var io = require('../app');
 var socket = io.sockets.on('connection', function (s) { return s; });
 var day = 86400;
+var month = 259200;
+
 /*
 // da natjeram xhr-polling umjesto uobicajenog metoda
 // medjutim, posto socket.io ima default fallback, ovo ne treba
@@ -133,7 +135,7 @@ exports.compare = function(req, res){
         if(!err){
         
             if (!res.getHeader('Cache-Control')) 
-                res.setHeader('Cache-Control', 'public, max-age=' + day); // vrati na day
+                res.setHeader('Cache-Control', 'public, max-age=' + month); // vrati na day
                 
             res.type('application/json');
             res.jsonp({ elements: elements })
@@ -150,7 +152,7 @@ exports.json = function(req, res){
         if(!err){
             
             if (!res.getHeader('Cache-Control')) 
-                res.setHeader('Cache-Control', 'public, max-age=' + day); // vrati na day
+                res.setHeader('Cache-Control', 'public, max-age=' + month); // vrati na day
         
             res.type('application/json');
             res.jsonp({ elements: elements[0] })

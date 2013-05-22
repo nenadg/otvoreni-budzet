@@ -19,6 +19,7 @@ module.exports = function(app, express, redisdb){
       app.use(express.favicon(path.join(__dirname, '../public/img/favicon.ico'), { maxAge: 86400000 }));
       
       // app.use(express.logger('dev'));
+      app.use(express.compress());
       app.use(express.bodyParser());
       app.use(express.methodOverride());
       
@@ -82,8 +83,7 @@ module.exports = function(app, express, redisdb){
       
       app.use(app.router);
       app.use(express.static(path.join(__dirname, '../public')), { maxAge: 86400000 });
-  
-      
+
     });
     
     // Dev error handling
