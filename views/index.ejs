@@ -1,4 +1,5 @@
-<div class="row" id="content">
+<% layout('layout') -%>
+        <div class="row" id="content">
             <div class="span3 visible-desktop">
                 <div data-spy="affix" data-offset-top="0" class="affix span3 kill-margins-paddings">
                     <span class="data-toggle title"></span>
@@ -72,7 +73,12 @@
                         <button class="btn btn-small btn-default exports" id="export-svg" data-loading-text="<i class='icon-upload'>">
                                 <span class="icon-leaf"></span></button>
                     </div>
-                    
+                    <br/>
+                    <div class="btn-group divide">
+                        <button class="btn btn-small disabled btn-default span2">Podijeli link</button>
+                        <button class="btn btn-small btn-default exports" id="export-link" data-loading-text="<i class='icon-upload'>">
+                                <span class="icon-tags"></span></button>
+                    </div>
                     <hr/>
                     <strong>Objašnjenja</strong>
                     <br/>
@@ -82,7 +88,7 @@
                             Pristup živim podacima u JSON formatu, možete pronaći <strike><a href="#">na ovom mjestu</a></strike>.
                         </small>
                         <br/>
-                    <% if(userstatus != true) { %>
+                    <% if(locals.userstatus != true) { %>
                     <p class="divide">
                         <a href="/login" class="btn btn-small btn-success"><i class="icon-lock icon-white"></i>&nbsp;Prijavi se</a>
                     </p>

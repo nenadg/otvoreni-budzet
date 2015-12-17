@@ -6,8 +6,8 @@ var budzetProvider = new budzetProvider();
 var kpProvider = new kpProvider();
 var dataProvider = new dataProvider();
 var mongoose = require('mongoose');
-var io = require('../app');
-var socket = io.sockets.on('connection', function (s) { return s; });
+//var io = require('../app');
+var socket = global.io.sockets.on('connection', function (s) { return s; });
 var day = 86400;
 var month = 259200;
 
