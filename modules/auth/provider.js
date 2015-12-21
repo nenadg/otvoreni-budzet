@@ -16,6 +16,7 @@ provider.prototype.findAll = function(next) {
 
 // Find one by name
 provider.prototype.findByName = function(name, next) {
+
     User.find({ username: name }, function(err, user) {
         if(!err){
             next(null, user[0]);

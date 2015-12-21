@@ -18,10 +18,10 @@ exports.create = function(req, res) {
                 title: 'Novi korisnik' });   
   } else if(req.method === 'POST') {
     provider.save({
-        username: req.param('username'),
-        password: req.param('password'),
-        email: req.param('email'),
-        role: req.param('role')
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        role: req.body.role
     }, function(error, docs) {
        res.redirect('/users');
     });
@@ -30,12 +30,13 @@ exports.create = function(req, res) {
 
 // register
 exports.register = function(req, res) {
+    
     provider.save({
-        username: req.param('username'),
-        password: req.param('password'),
-        email: req.param('email'),
-        role: req.param('role'),
-        isNew: req.param('isNew')
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        role: req.body.role,
+        isNew: req.body.isNew
     }, function(error, docs) {
        res.redirect('/');
     });
@@ -44,21 +45,21 @@ exports.register = function(req, res) {
 // read&update
 exports.user = function(req, res) {
     if(req.method === 'GET'){
-        provider.findByName(req.param('name'), function(err, user) {
+        provider.findByName(req.param.name, function(err, user) {
             res.render('users/update', {
                 title: 'Izmijeni ' + user.username,
                 user: user
             });
         });
     } else if(req.method === 'POST'){
-        var params = { username: req.param('username'), password: req.param('password'), email: req.param('email'), role: req.param('role') };
+        var params = { username: req.body.username, password: req.body.password, email: req.body.email, role: req.body.role };
         provider.update(params, function(err){ if(!err) res.redirect('/users'); else { console.log(err); res.redirect('/users/update/' + params.username); } });   
     }
 };
 
 // remove
 exports.remove = function(req, res) {
-    provider.remove(req.param('id'), function(err, user) {
+    provider.remove(req.body.id, function(err, user) {
         res.redirect('/users');
     });
 };

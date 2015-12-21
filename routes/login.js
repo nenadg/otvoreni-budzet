@@ -5,7 +5,7 @@ var authenticate = auth.authenticate;
 var referer = auth.referer;
 var backURL;
 
-exports.login = function(req, res){
+exports.login = function(req, res, next){
     switch(req.method){
         case('GET'):
             backURL = referer(req);
@@ -16,9 +16,28 @@ exports.login = function(req, res){
             }); 
             break;
         case('POST'): 
-            authenticate(req, res, function(err, user) { (user) ? res.redirect(backURL || referer(req)) : res.redirect('/login') });
+            authenticate(req, res, function(err, user) { 
+               
+               
+                if(user){
+                    // stupid express and redirecting ...
+                    // http://stackoverflow.com/questions/8240447/express-js-cant-redirect
+                   
+                    //req.method = 'GET'; 
+                   
+                    res.redirect('/')
+                    
+                } 
+                else {
+                    
+                   res.redirect('/login')
+                }
+
+            });
             break;
     }
+   
+    
 }
 
 exports.logout = function(req, res){

@@ -1,4 +1,4 @@
-// This code will generate url for both local mongodb an remote
+ // This code will generate url for both local mongodb an remote
 // in this case - code provided applies for AppFog 
 
 exports.generate = function(callback, collection){
@@ -10,8 +10,8 @@ exports.generate = function(callback, collection){
         var obj = {
             "hostname":"localhost",
             "port":27017,
-            "username":"",
-            "password":"",
+            "username":"nenadg",
+            "password":"1234",
             "name":"",
             "db": collection
         }
@@ -22,12 +22,12 @@ exports.generate = function(callback, collection){
     obj.port = (obj.port || 27017);
     obj.db = (obj.db || 'bulk-import-db');
     
-    if(obj.username && obj.password){
+    //if(obj.username && obj.password){
         url = "mongodb://" + obj.username + ":" + obj.password + "@" + obj.hostname + ":" + obj.port + "/" + obj.db;
         callback(url);
-    } else {
-        url = "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
-        callback(url);
-    }
+   // } else {
+    //    url = "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
+   //     callback(url);
+    //}
 };
 

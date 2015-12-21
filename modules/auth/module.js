@@ -6,13 +6,17 @@ var provider = new provider();
 exports.authenticate = function(req, res, next) {
     
     provider.findByName(req.body.username, function(error, user) {
-        if(error) { return next('auth-failed') }
+        if(error) { next('auth-failed') }
         
         if(user){
             bcrypt.compare(req.body.password, user.hash, function(err, result) {
+
                 if(result){
+
                     provider.registerLogin(user._id, function(user) {
                         if(user){
+                            
+                            console.log(req.session);
                             req.session.user = {
                                  _id      : user._id,
                                  name     : user.username,
@@ -28,15 +32,16 @@ exports.authenticate = function(req, res, next) {
                             // colored session? wtf   
                             // req.session.secret = '#' + Math.floor(Math.random()*16777215).toString(16); // colored session secret
                             // req.session.cookie.maxAge = new Date(Date.now() + 3600000);
-                            return next(null, user);    
+                           
+                            next(null, user);    
                         } else {
-                             return next('auth-failed') }
+                            next('auth-failed') }
                     });
                 } else {
-                    return next('auth-failed') }
+                    next('auth-failed') }
              });
         } else {
-            return next('auth-failed');
+            next('auth-failed');
         }
     });
 }
@@ -44,6 +49,7 @@ exports.authenticate = function(req, res, next) {
 exports.restrict = function(req, res, next) {
     // ovo je idiotski odradjeno, ali nisam imao vremena da se sa tim zezam sada
     // todo: implementirati logiku za ogranicenje pristupa kroz bazu
+    
     if (req.session.user) {
         var limited = { '/data/setup': (req.session.user.role == 100)? true: false,
                         '/users': (req.session.user.role == 100)? true: false,
@@ -63,6 +69,7 @@ exports.restrict = function(req, res, next) {
         req.session.referer = req.url;
         res.redirect('/login');
     }
+    console.log('what')
 }
 
 exports.serviceRestrict = function(req, res, next){
@@ -73,7 +80,8 @@ exports.serviceRestrict = function(req, res, next){
 }
 
 exports.referer = function(req){
-    var ret = (req.session.referer != undefined)? req.session.referer : "/";
+
+    var ret = (req.headers.referer)? req.headers.referer : "/";
     return ret;
 }
 

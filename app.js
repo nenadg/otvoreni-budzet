@@ -11,17 +11,18 @@ var http = require('http'),
 	logger = require('morgan'),
 	methodOverride = require('method-override'),
 	session = require('express-session'),
-	bodyParser = require('body-parser'),
+	bodyParser = global.bodyParser = require('body-parser'),
 	multer = require('multer'),
 	errorHandler = require('errorhandler'),
 	io = global.io = require('socket.io').listen(server, { log: false }),
 	mongoose = require('mongoose'),
-	mongourl = require('./shared/mongourl').generate(function(url) { mongoose.connect(url) }, 'otvoreni-budzet'),
-	router = require('./shared/router')(app);
+	mongourl = require('./shared/mongourl').generate(function(url) { mongoose.connect(url) }, 'otvoreni-budzet');
+	
 
 var roles = { 100: 'admins', 50: 'contribs', 10: 'users' };
 var signs = { 100: '$', 50: '*', 10: '~' };
 var sessionStuff = { name: '', online: '', role: '' };	
+var online = [];
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -61,7 +62,7 @@ app.use(function(req, res, next){
             sessionStuff.role = req.session.user.role;
             
             //redisdb.zadd('online', Date.now(), sessionStuff.name, next);
-          } else
+          } 
             next();
         });
       
@@ -71,6 +72,7 @@ app.use(function(req, res, next){
               var min = 60 * 1000;
               var ago = Date.now() - min;
               online = [];
+              next();
               /*redisdb.zrevrangebyscore('online', '+inf', ago, function(err, users){
                     if (err) return next(err);
                     users.forEach(function(u){ online.push(u); });
@@ -85,7 +87,7 @@ app.use(function(req, res, next){
 
       app.use(function (req, res, next) {
        
-        res.locals({
+        res.locals = {
             style: '', script: '', 
             username: sessionStuff.name,
             userstatus: sessionStuff.online,
@@ -94,7 +96,7 @@ app.use(function(req, res, next){
             signs: signs,
             online: online
             // e.g. session: req.session
-        });
+        };
         
         next();
       });
@@ -112,7 +114,8 @@ if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
 
-var server = http.createServer(app);
+var server = http.createServer(app),
+	router = require('./shared/router')(app);
 
 server.listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
