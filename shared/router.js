@@ -16,6 +16,10 @@ module.exports = function(app) {
     app.use(function (req, res, next) {
         res.header('X-XSS-Protection' ,  '1; mode=block');
         res.header('X-Powered-By', '100Maraka');
+        res.header('Access-Control-Allow-Origin', 'http://localhost/');
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
         next();
     });
     

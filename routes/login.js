@@ -11,8 +11,8 @@ exports.login = function(req, res, next){
             backURL = referer(req);
             provider.findAll(function(err, users){
                 (users.length == 0) ? 
-                res.render('auth/register', { title: 'Registruj se', layout: 'loginLayout', isNew: true }) 
-                : res.render('auth/login', { title: 'Uloguj se', layout: 'loginLayout' });
+                res.render('auth/register', { title: 'Registruj se', isNew: true }) 
+                : res.render('auth/login', { title: 'Uloguj se' });
             }); 
             break;
         case('POST'): 

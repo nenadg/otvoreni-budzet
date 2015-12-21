@@ -21,6 +21,9 @@ var month = 259200;
     }) : null;
 */
 exports.update = function(req, res){
+    // not implemented
+    return;
+
     var hostname = ( req.headers.host.match(/:/g) ) ? req.headers.host.slice( 0, req.headers.host.indexOf(":") ) : req.headers.host;
     
     var styles = '<link href="/css/sumo.css" rel="stylesheet" type="text/css" media="screen"/>';

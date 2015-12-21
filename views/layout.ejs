@@ -46,8 +46,8 @@
     
   </head>
   <body>
-    <% if(locals.userstatus === true) {
-        if(locals.userrole >= 50) {
+    <% if(userstatus === true) {
+        if(userrole >= 50) {
      %>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -61,8 +61,8 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="/">Početna</a></li>
-              <li><a href="/data/update">Izmjene</a></li>
-              <% if(locals.userrole >= 100) { %>
+              <!-- <li><a href="/data/update">Izmjene</a></li> -->
+              <% if(userrole >= 100) { %>
               <li><a href="/data/setup">Podešavanja</a></li>
               <li><a href="/users">Korisnici</a></li> 
               <% } %>
@@ -80,22 +80,13 @@
     </div>
     <% } } %>  
     <div class="container">
-        <% //if(locals.userstatus == true) { %>
-            <%- body %>
-            
-        <% //}%>
-        <% //if(locals.userstatus != true) { %>
-        <!--
-        <div class="row">
-            
-            <div class="span12">
-                
-            </div>
-        </div>-->
-        <% //} %>
+       
+      <%- body %>  
     </div>
     <!-- fork me -->
-    <a href="https://github.com/nenadg/otvoreni-budzet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <% if(userstatus != true) { %>
+        <a href="https://github.com/nenadg/otvoreni-budzet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="  https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <% } %>
   </body>
   
 </html>
