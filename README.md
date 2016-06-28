@@ -14,7 +14,7 @@ Budžetski podaci su javni podaci i kao takvi podložni kritici javnosti.
 
 Nije mi bilo teško da ih prepišem u neki drugi oblik, bliži programeru i/ili analitičaru, nekome ko bi mogao od njih da ima nekakvu konkretnu korist (npr. da vidi koliko se para više trošilo tokom izbornih godina u odnosu na druge...).
 
-A za opštenarodnu korist sam te podatke posredstvom [D3.JS](http://d3js.org/) biblioteke uobličio u niz krajnje linearnih grafika sa osnovnim prikazima potrošnje i prihoda. Ovaj dio se nalazi na sajtu [budzet.aws.af.cm](http://budzet.aws.af.cm/).
+A za opštenarodnu korist sam te podatke posredstvom [D3.JS](http://d3js.org/) biblioteke uobličio u niz krajnje linearnih grafika sa osnovnim prikazima potrošnje i prihoda. Ovaj dio se nalazi na sajtu [budzet.aws.af.cm](http://statick.org:3000/).
 
 Ovaj projekt je moja kritika načina dostavljanja i prikaza budžetskih podataka u današnje vrijeme koje dopušta malo širi pristup. Nastao je za 0 konvertibilnih maraka iz čistog hira i viška slobodnog vremena.
 
